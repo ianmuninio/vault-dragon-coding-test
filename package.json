@@ -1,0 +1,61 @@
+{
+  "name": "vault-dragon-coding-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "./node_modules/.bin/jest --forceExit",
+    "start": "npm run start:dev",
+    "start:dev": "DEBUG=server*,express* node bin/www.js",
+    "start:prod": "NODE_ENV=production node bin/www.js",
+    "prettier:check": "./node_modules/.bin/prettier --debug-check \"{src,lib,bin,migrations,seeds}/**/*.{js,json}\"",
+    "prettier:fix": "./node_modules/.bin/prettier --write \"{src,lib,bin,migrations,seeds}/**/*.{js,json}\"",
+    "lint:check": "./node_modules/.bin/eslint --fix-dry-run \"{src,lib,bin,migrations,seeds}/**/*.{js,json}\"",
+    "lint:fix": "./node_modules/.bin/eslint --fix \"{src,lib,bin,migrations,seeds}/**/*.{js,json}\"",
+    "lint:check-config": "./node_modules/.bin/eslint --print-config .eslintrc | ./node_modules/.bin/eslint-config-prettier-check",
+    "db:refresh": "npm run db:migrate:latest && npm run db:seed:run",
+    "db:migrate:make": "./node_modules/.bin/knex migrate:make",
+    "db:migrate:latest": "./node_modules/.bin/knex migrate:latest",
+    "db:migrate:rollback": "./node_modules/.bin/knex migrate:rollback",
+    "db:seed:make": "./node_modules/.bin/knex seed:make",
+    "db:seed:run": "./node_modules/.bin/knex seed:run"
+  },
+  "author": "Ian Mark Muninio",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "compression": "^1.7.2",
+    "debug": "^3.1.0",
+    "decimal.js": "^10.0.0",
+    "express": "^4.16.3",
+    "express-promise-router": "^3.0.2",
+    "http-errors": "^1.6.3",
+    "knex": "^0.14.6",
+    "lodash": "^4.17.5",
+    "moment": "^2.22.1",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "prettier": "^1.12.1"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "node"
+    ]
+  }
+}

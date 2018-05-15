@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: leafney/docker-alpine-mysql
+    volumes:
+      - ../mysql/data/:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PWD=root
+      - MYSQL_USER=dev
+      - MYSQL_USER_PWD=dev
+      - MYSQL_USER_DB=vault-dragon
