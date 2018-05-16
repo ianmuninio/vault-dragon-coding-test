@@ -13,7 +13,7 @@ const config = require('../lib/config');
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(config.HTTP_SERVER_PORT, config.HTTP_SERVER_HOST);
+const port = normalizePort(config.HTTP_SERVER_PORT);
 app.set('port', port);
 
 /**
@@ -24,7 +24,7 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port);
+server.listen(port, config.HTTP_SERVER_HOST);
 server.on('error', onError);
 server.on('listening', onListening);
 
