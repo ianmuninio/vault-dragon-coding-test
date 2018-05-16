@@ -65,7 +65,7 @@ app.use((err, req, res, next) => {
   const stack = (err.originalError || err).stack;
 
   // eslint-disable-next-line no-console
-  console.error(stack);
+  app.get('env') !== 'test' && console.error(stack);
 
   const payload = { message: err.message };
   if (app.get('env') === 'development') {

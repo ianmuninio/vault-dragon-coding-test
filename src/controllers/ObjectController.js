@@ -30,7 +30,7 @@ class ObjectController {
       .first();
 
     if (obj === undefined) {
-      throw new ServiceError(404, ObjectError.NotFound(key));
+      throw new ServiceError(400, ObjectError.NotFound(key));
     }
 
     res.send({ value: JSON.parse(obj.value) });
